@@ -1,0 +1,11 @@
+python-dotenv
+tweepy
+schedule
+google-genai
+sqlalchemy
+psycopg2-binary
+nltk
+uuid
+alembic
+spacy
+
