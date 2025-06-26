@@ -4,6 +4,13 @@ from datetime import datetime
 from app.db.database import Base  # Assuming Base is from declarative_base()
 # from sqlalchemy.dialects.postgresql import UUID
 import uuid
+import pytz
+
+
+IST = pytz.timezone("Asia/Kolkata")
+
+def ist_now():
+    return datetime.now(IST)
 
 class TweetPost(Base):
     __tablename__ = "tweet_posts"
@@ -16,5 +23,5 @@ class TweetPost(Base):
     scheduled_time = Column(DateTime, default=None)
     tweet_link = Column(String, default=None)
     is_thread = Column(Integer, default=0)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=ist_now)
     posted_at = Column(DateTime, default=None)

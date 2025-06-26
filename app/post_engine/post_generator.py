@@ -6,7 +6,7 @@ import time
 def generate_post_content():
     tweets = []
     generated_topics = generate_tweet_topic(n=1)
-    for i,topic in generated_topics:
+    for i, topic in enumerate(generated_topics):
         tweet_topic = topic["tweet_topic"]
         prompt = generate_tweet_prompt(topic['topic'], topic['subtopic'], tweet_topic)
         tweet_content = generate(prompt).strip()
@@ -19,7 +19,7 @@ def generate_post_content():
         
         if i < len(generated_topics) - 1:
             print("Waiting for 3 minutes before next iteration...")
-            time.sleep(3 * 60)  # 3 minutes delay
+            time.sleep(1 * 60)  # 3 minutes delay
         
     print("generated posts",tweets)
     save_generated_tweets_to_db(tweets)
@@ -29,7 +29,7 @@ def generate_tweet_prompt(topic,subtopic,tweet_topic) -> str:
     return f"""
     You are a 10+ year experienced technical educator, LLM prompt engineer, and viral tech content creator on X (formerly Twitter).
 
-    You create educational  **tweets** that explain difficult software/data science/ML/AI concepts to developers in a clear, funny, and practical way using:
+    You create educational  tweet **threads** that explain difficult software/data science/ML/AI concepts to developers in a clear, funny, and practical way using:
     - Humor & analogies
     - Real-world relatable examples
     - Step-by-step breakdowns
@@ -44,7 +44,7 @@ def generate_tweet_prompt(topic,subtopic,tweet_topic) -> str:
     - Subtopic: {subtopic}
     - Headline: "{tweet_topic}"
 
-    Now generate a detailed, well-formatted **tweet** that:
+    Now generate a detailed, well-formatted tweet **thread** that:
     - add the Headline ({tweet_topic}) on the top
     - Explains the concept in a fun, engaging way
     - Uses simple language and relatable examples
@@ -60,7 +60,7 @@ def generate_tweet_prompt(topic,subtopic,tweet_topic) -> str:
     - Ends with questions, tips, or fun facts to boost engagement
     - add Hashtags and links to relevant resources if possible
 
-    Format output as markdown-style tweet(s). Output should be plain text and should not exceed 500 characters in total.
+    Format output as markdown-style tweet(s). Output should be plain text and should not exceed 800 characters in total.
     """
 
 

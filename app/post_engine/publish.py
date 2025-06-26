@@ -15,12 +15,14 @@ def fetch_post_and_publish():
 
         ist = pytz.timezone("Asia/Kolkata")
         now = datetime.datetime.now(ist)
+        
+        print(f"🕒 Now in IST: {now}")
 
         # 2. Fetch first unposted & due (scheduled_time <= now) tweet
         post: TweetPost = db.query(TweetPost)\
             .filter(
                 TweetPost.tweet_link.is_(None),
-                TweetPost.scheduled_time <= now
+                TweetPost.scheduled_time <= f"{now}"
             )\
             .order_by(TweetPost.scheduled_time)\
             .first()

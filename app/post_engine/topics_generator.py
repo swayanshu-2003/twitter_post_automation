@@ -47,7 +47,7 @@ def generate_tweet_topic(n=1):
         
         if i < n - 1:
             print("Waiting for 3 minutes before next iteration...")
-            time.sleep(3 * 60)  # 3 minutes delay
+            time.sleep(1 * 60)  # 3 minutes delay
         
     print("generated topics",generated_topics)
     return generated_topics
