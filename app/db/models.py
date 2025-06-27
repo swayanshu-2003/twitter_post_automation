@@ -25,3 +25,15 @@ class TweetPost(Base):
     is_thread = Column(Integer, default=0)
     created_at = Column(DateTime, default=ist_now)
     posted_at = Column(DateTime, default=None)
+
+
+class FunnyPost(Base):
+    __tablename__ = "funny_posts"
+
+    id = Column(String, primary_key=True, default=uuid.uuid4)
+    topic = Column(String, nullable=False)
+    tweet_content = Column(String)  # For actual tweet text later
+    scheduled_time = Column(DateTime, default=None)
+    tweet_link = Column(String, default=None)
+    created_at = Column(DateTime, default=ist_now)
+    posted_at = Column(DateTime, default=None)
