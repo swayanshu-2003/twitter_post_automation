@@ -2,11 +2,11 @@ name: Python Cron Jobs
 
 on:
   schedule:
-    - cron: '0 0 * * *'        # run_post_generation.py at 12:00 AM daily
-    - cron: '5 9 * * *'        # run_publish_tweet.py at 09:05 AM
-    - cron: '35 12 * * *'      # run_publish_tweet.py at 12:35 PM
-    - cron: '5 16 * * *'       # run_publish_tweet.py at 04:05 PM
-    - cron: '35 19 * * *'      # run_publish_tweet.py at 07:35 PM
+    - cron: '30 18 * * *'       # 12:00 AM IST (6:30 PM UTC previous day)
+    - cron: '35 3 * * *'        # 09:05 AM IST
+    - cron: '5 7 * * *'         # 12:35 PM IST
+    - cron: '35 10 * * *'       # 04:05 PM IST
+    - cron: '5 14 * * *'        # 07:35 PM IST
   workflow_dispatch:
 
 jobs:
