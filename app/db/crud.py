@@ -7,12 +7,21 @@ import pytz
 IST = pytz.timezone("Asia/Kolkata")
 
 # Define your preferred time slots in IST
+from datetime import time
+
 TIME_SLOTS = [
-    time(14, 30),    # 09:00 AM
-    time(18, 0),  # 12:30 PM
-    time(21, 30),   # 04:00 PM
-    time(1, 0),  # 07:30 PM
+    time(2, 30),   # 08:00 AM IST
+    time(4, 30),   # 10:00 AM IST
+    time(7, 0),    # 12:30 PM IST
+    time(8, 30),   # 02:00 PM IST
+    time(10, 30),  # 04:00 PM IST
+    time(12, 30),  # 06:00 PM IST
+    time(14, 0),   # 07:30 PM IST
+    time(15, 0),   # 08:30 PM IST
+    time(16, 30),  # 10:00 PM IST
+    time(17, 30),  # 11:00 PM IST
 ]
+
 
 def save_generated_tweets_to_db(tweets):
     db = SessionLocal()
