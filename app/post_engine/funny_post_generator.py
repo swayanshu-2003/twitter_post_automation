@@ -3,7 +3,7 @@ from app.db.crud import save_generated_tweets_to_funny_posts
 import random
 def generate_funnly_post_content(n = 10):
     tweets = []
-    for _ in range(3):
+    for _ in range(n):
         theme = random.choice(["college", "office", "mixed"])
         prompt = generate_funnly_post_prompt(theme)
         post_content = generate(prompt).strip()
