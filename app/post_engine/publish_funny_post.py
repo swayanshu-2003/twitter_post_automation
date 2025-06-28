@@ -1,6 +1,7 @@
 from app.db.database import SessionLocal
 from app.db.models import FunnyPost
-from app.post_engine.formatter import intelligent_chunk
+# from app.post_engine.formatter import intelligent_chunk
+from app.db.crud import delete_funny_post_by_id
 from app.post_engine.post_to_x import post_thread_to_twitter
 from app.config import X_USERNAME
 import datetime
@@ -35,6 +36,7 @@ def fetch_post_and_publish():
 
         if not tweet_ids:
             print("❌ Posting failed.")
+            delete_funny_post_by_id(post.id)
             return
 
         

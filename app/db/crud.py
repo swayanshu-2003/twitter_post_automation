@@ -87,3 +87,24 @@ def save_generated_tweets_to_funny_posts(tweets):
     
     finally:
         db.close()
+        
+        
+def delete_funny_post_by_id(tweet_id):
+    db = SessionLocal()
+    try:
+        tweet_to_delete = db.query(FunnyPost).filter(FunnyPost.id == tweet_id).first()
+
+        if tweet_to_delete:
+            db.delete(tweet_to_delete)
+            db.commit()
+            print(f"✅ Tweet with ID {tweet_id} deleted successfully.")
+        else:
+            print(f"⚠️ No tweet found with ID {tweet_id}.")
+
+    except Exception as e:
+        db.rollback()
+        print(f"❌ Error deleting tweet with ID {tweet_id}: {e}")
+    
+    finally:
+        db.close()
+

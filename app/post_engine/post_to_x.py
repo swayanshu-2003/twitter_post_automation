@@ -24,6 +24,7 @@ def post_thread_to_twitter(tweet_chunks):
             return None
 
         # Post the first tweet
+        print(tweet_chunks)
         first_tweet = client.create_tweet(text=tweet_chunks[0])
         tweet_ids.append(first_tweet.data['id'])
         print(f"✅ First tweet posted: {first_tweet.data['id']}")
@@ -50,5 +51,6 @@ def post_thread_to_twitter(tweet_chunks):
 
     except tweepy.TweepyException as e:
         print(f"❌ Error posting tweet(s): {e}")
+        print("❌ Full error:", e.response.json())
         return None
 
