@@ -10,7 +10,7 @@ on:
     - cron: '35 12 * * *'    # 06:05 PM IST
     - cron: '5 14 * * *'     # 07:35 PM IST
     - cron: '5 15 * * *'     # 08:35 PM IST
-    - cron: '25 17 * * *'    # 10:55 PM IST
+    - cron: '45 16 * * *'    # 10:55 PM IST
     - cron: '35 17 * * *'    # 11:05 PM IST
   workflow_dispatch:
 
