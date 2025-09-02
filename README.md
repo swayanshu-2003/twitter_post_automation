@@ -1,6 +1,6 @@
 # Twitter Automation Project
 
-## Overview
+## OVERVIEW
 This project is a Python-based application designed to automate the generation, scheduling, and posting of Twitter content, including educational threads on data science/AI topics and humorous posts tailored to Indian tech culture. It integrates with a PostgreSQL database using SQLAlchemy for storing tweet data, utilizes the Google Gemini API for content generation, and employs Tweepy for posting to Twitter. The system supports scheduling posts in Indian Standard Time (IST) with predefined time slots and handles both single tweets and threaded content.
 
 ### Key Features
